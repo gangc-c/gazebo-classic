@@ -4,6 +4,8 @@ else()
   cmake_minimum_required(VERSION 3.10.2 FATAL_ERROR)
 endif()
 
+set(CMAKE_CXX_STANDARD 14)
+
 if(COMMAND CMAKE_POLICY)
   CMAKE_POLICY(SET CMP0003 NEW)
   CMAKE_POLICY(SET CMP0004 NEW)
@@ -12,6 +14,8 @@ endif(COMMAND CMAKE_POLICY)
 if(POLICY CMP0100)
   cmake_policy(SET CMP0100 NEW)
 endif()
+
+include_directories(/usr/local/include/qwt-6.1.3)
 
 project (Gazebo)
 string (TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWER)
@@ -59,6 +63,8 @@ endif()
 set(CMAKE_CXX_EXTENSIONS off)
 
 ########################################
+
+
 # Package Creation:
 include (${gazebo_cmake_dir}/gazebo_cpack.cmake)
 set (CPACK_PACKAGE_VERSION "${GAZEBO_VERSION_FULL}")
